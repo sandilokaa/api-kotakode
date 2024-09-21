@@ -26,8 +26,8 @@ export class AttendanceService {
   }
 
   async findAllStaffByAttendence(
-    clockIn?: Date,
-    clockOut?: Date,
+    clockIn?: string,
+    clockOut?: string,
   ): Promise<Attendance[]> {
     const query: any = {};
 

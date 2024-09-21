@@ -1,10 +1,12 @@
-import { IsOptional } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 import { PageOptionsDto } from 'src/common/dto/page-options.dto';
 
 export class GetStaffByAttendanceDto extends PageOptionsDto {
   @IsOptional()
-  clockIn?: Date;
+  @IsString()
+  clockIn?: string;
 
   @IsOptional()
-  clockOut?: Date;
+  @IsString()
+  clockOut?: string;
 }
