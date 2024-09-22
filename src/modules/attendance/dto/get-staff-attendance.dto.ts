@@ -1,5 +1,5 @@
 import { IsOptional, IsString } from 'class-validator';
-import { PageOptionsDto } from 'src/common/dto/page-options.dto';
+import { PageOptionsDto } from '../../../common/dto/page-options.dto';
 
 export class GetStaffByAttendanceDto extends PageOptionsDto {
   @IsOptional()

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AuthHelper } from 'src/helpers/auth.helper';
+import { AuthHelper } from '../../helpers/auth.helper';
 import { FindOptionsWhere } from 'typeorm';
 import { validateHash } from '../../helpers/password.helpers';
 import { TokenType } from '../../types/enums';

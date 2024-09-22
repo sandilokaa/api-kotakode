@@ -1,6 +1,6 @@
 import { Exclude } from 'class-transformer';
 import { IsString } from 'class-validator';
-import { Resource } from 'src/common/resource';
+import { Resource } from '../../../common/resource';
 import { Staff } from '../entities/staff.entity';
 
 export class StaffDto extends Resource {

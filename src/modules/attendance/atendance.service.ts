@@ -8,7 +8,7 @@ import { Attendance } from './entities/attendance.entity';
 import { UpdateAttendanceDto } from './dto/update-attendance.dto';
 import { Staff } from '../staff/entities/staff.entity';
 import { Between } from 'typeorm';
-import { parseDate } from 'src/helpers/date-parser.helper';
+import { parseDate } from '../../helpers/date-parser.helper';
 
 @Injectable()
 export class AttendanceService {

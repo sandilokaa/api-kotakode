@@ -2,7 +2,7 @@ import { BeforeInsert, Column, Entity, OneToMany } from 'typeorm';
 import { BaseEntityWithUUID } from '../../../common/base.entity';
 import { hashPassword } from '../../../helpers/password.helpers';
 import { Exclude } from 'class-transformer';
-import { Attendance } from 'src/modules/attendance/entities/attendance.entity';
+import { Attendance } from '../../attendance/entities/attendance.entity';
 
 @Entity()
 export class Staff extends BaseEntityWithUUID {

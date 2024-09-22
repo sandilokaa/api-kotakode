@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
 import { StaffDto } from './dto/staff.dto';
@@ -69,15 +69,16 @@ export class StaffService {
     staffId: string,
   ): Promise<Staff> {
     if (id !== staffId) {
-      throw new ForbiddenException(
-        'You are not allowed to update other staffs data',
-      );
+      throw new UnauthorizedException('Unauthorized');
     }
 
     const staff = await Staff.findOne({
       where: { id },
     });
-    if (!staff) NoStaffFoundError();
+
+    if (!staff) {
+      NoStaffFoundError();
+    }
 
     if (options.staffId) staff.staffId = options.staffId;
 

@@ -1,9 +1,9 @@
 import { Transform } from 'class-transformer';
 import { parsePhoneNumber } from 'libphonenumber-js';
 import { castArray, isArray, isNil, map, trim } from 'lodash';
-import { Resource } from 'src/common/resource';
-import { BaseEntity } from 'src/common/base.entity';
-import { TransformApiResource } from 'src/interfaces/transform.interface';
+import { Resource } from '../common/resource';
+import { BaseEntity } from '../common/base.entity';
+import { TransformApiResource } from '../interfaces/transform.interface';
 import { camelCase } from 'change-case';
 import { enumerateParser } from './enumerate-parser.helper';
 

@@ -7,12 +7,12 @@ import {
 import { Reflector } from '@nestjs/core';
 import { instanceToInstance } from 'class-transformer';
 import { map, Observable } from 'rxjs';
-import { enumerateParser } from 'src/helpers/enumerate-parser.helper';
+import { enumerateParser } from '../helpers/enumerate-parser.helper';
 import {
   flattenData,
   simpleMapModelToResource,
-} from 'src/helpers/transform-response.helpers';
-import { TransformResponse } from 'src/interfaces/transform.interface';
+} from '../helpers/transform-response.helpers';
+import { TransformResponse } from '../interfaces/transform.interface';
 import { BaseEntity } from '../common/base.entity';
 import { Resource } from '../common/resource';
 

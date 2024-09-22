@@ -3,8 +3,8 @@ import {
   HouseTypeEnum,
   ReligionTypeEnum,
   StatusTypeEnum,
-} from 'src/types/enums';
-import { ACTIVE_STATUS, GENDER, HOUSE, RELIGION } from 'src/types/constants';
+} from '../types/enums';
+import { ACTIVE_STATUS, GENDER, HOUSE, RELIGION } from '../types/constants';
 
 // return the key of declared enum if the field type is enum,
 // either return original value
