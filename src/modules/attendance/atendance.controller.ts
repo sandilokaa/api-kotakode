@@ -58,6 +58,15 @@ export class AttendanceController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get(':staffId/staff')
+  async findAttendanceStaff(@Param('staffId') staffId: string) {
+    const attendanceData = await this.attendanceService.findAttendanceStaff(
+      staffId,
+    );
+    return { data: attendanceData };
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   async updateClockOut(
     @Param('id') id: string,

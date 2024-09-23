@@ -59,6 +59,16 @@ export class AttendanceService {
     return findAll;
   }
 
+  async findAttendanceStaff(staffId: string): Promise<Attendance[]> {
+    const findAll = await Attendance.find({
+      where: {
+        staff: { id: staffId },
+      },
+    });
+
+    return findAll;
+  }
+
   async updateClockOut(
     id: string,
     options: UpdateAttendanceDto,
