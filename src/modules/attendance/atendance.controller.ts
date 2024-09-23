@@ -48,6 +48,16 @@ export class AttendanceController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get('/self')
+  async findAllAttendanceByStaffId(@Req() request: Request) {
+    const staff = request.user;
+    const staffId = staff.id.toString();
+    const attendanceData =
+      await this.attendanceService.findAllAttendanceByStaffId(staffId);
+    return { data: attendanceData };
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   async updateClockOut(
     @Param('id') id: string,

@@ -8,7 +8,6 @@ import { Attendance } from './entities/attendance.entity';
 import { UpdateAttendanceDto } from './dto/update-attendance.dto';
 import { Staff } from '../staff/entities/staff.entity';
 import { Between } from 'typeorm';
-import { parseDate } from '../../helpers/date-parser.helper';
 
 @Injectable()
 export class AttendanceService {
@@ -17,7 +16,7 @@ export class AttendanceService {
     staffId,
   ): Promise<Attendance> {
     const attendance = new Attendance();
-    attendance.clockIn = parseDate(new Date());
+    attendance.clockIn = options.clockIn;
     attendance.clockOut = null;
     attendance.staff = staffId;
 
@@ -47,6 +46,16 @@ export class AttendanceService {
       where: query,
       relations: ['staff'],
     });
+    return findAll;
+  }
+
+  async findAllAttendanceByStaffId(staffId: string): Promise<Attendance[]> {
+    const findAll = await Attendance.find({
+      where: {
+        staff: { id: staffId },
+      },
+    });
+
     return findAll;
   }
 
