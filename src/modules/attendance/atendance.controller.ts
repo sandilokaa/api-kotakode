@@ -49,19 +49,26 @@ export class AttendanceController {
 
   @UseGuards(JwtAuthGuard)
   @Get('/self')
-  async findAllAttendanceByStaffId(@Req() request: Request) {
+  async findAllAttendanceByStaffId(
+    @Req() request: Request,
+    @Query('order') order: 'DESC' | 'ASC' = 'DESC',
+  ) {
     const staff = request.user;
     const staffId = staff.id.toString();
     const attendanceData =
-      await this.attendanceService.findAllAttendanceByStaffId(staffId);
+      await this.attendanceService.findAllAttendanceByStaffId(staffId, order);
     return { data: attendanceData };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get(':staffId/staff')
-  async findAttendanceStaff(@Param('staffId') staffId: string) {
+  async findAttendanceStaff(
+    @Param('staffId') staffId: string,
+    @Query('order') order: 'DESC' | 'ASC' = 'DESC',
+  ) {
     const attendanceData = await this.attendanceService.findAttendanceStaff(
       staffId,
+      order,
     );
     return { data: attendanceData };
   }

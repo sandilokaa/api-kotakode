@@ -27,12 +27,14 @@ export class StaffController {
     return { data: staff };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll(@Query(ValidationPipe) options: GetStaffDto) {
     const { staffs, count, meta } = await this.staffService.findAll(options);
     return { data: staffs, count, meta };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   async findOne(@Param('id') id: string) {
     const admin = await this.staffService.findOne({ id });

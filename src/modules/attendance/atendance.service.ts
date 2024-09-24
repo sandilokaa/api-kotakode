@@ -49,20 +49,32 @@ export class AttendanceService {
     return findAll;
   }
 
-  async findAllAttendanceByStaffId(staffId: string): Promise<Attendance[]> {
+  async findAllAttendanceByStaffId(
+    staffId: string,
+    orderBy: 'DESC' | 'ASC' = 'DESC',
+  ): Promise<Attendance[]> {
     const findAll = await Attendance.find({
       where: {
         staff: { id: staffId },
+      },
+      order: {
+        clockIn: orderBy,
       },
     });
 
     return findAll;
   }
 
-  async findAttendanceStaff(staffId: string): Promise<Attendance[]> {
+  async findAttendanceStaff(
+    staffId: string,
+    orderBy: 'DESC' | 'ASC' = 'DESC',
+  ): Promise<Attendance[]> {
     const findAll = await Attendance.find({
       where: {
         staff: { id: staffId },
+      },
+      order: {
+        clockIn: orderBy,
       },
     });
 
